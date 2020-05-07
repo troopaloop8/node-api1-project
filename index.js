@@ -1,13 +1,22 @@
 const express = require('express');
+const cors = require('cors');
 const shortid = require('shortid');
 
 const server = express();
 
 server.use(express.json());
-
-let users = [];
+server.use(cors());
+let users = [
+    {
+        name: "Johnson Bronson",
+        bio: "billionaire playboy",
+        gender: "men",
+        id: "sdfgyu3456"
+    }
+];
 
 // | POST   | /api/users     | Creates a user using the information sent inside the `request body`.                                   |
+
 
 server.post("/api/users", (req, res) => {
     const user = req.body;
